@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Levelmanager : MonoBehaviour {
 
@@ -21,8 +22,8 @@ public class Levelmanager : MonoBehaviour {
 
 	public void LoadScene(string name)
 	{
-		Application.LoadLevel (name);
-	}
+        SceneManager.LoadScene(name, LoadSceneMode.Additive);
+    }
 
 	public void ExitGame(bool confirmBox)
 	{

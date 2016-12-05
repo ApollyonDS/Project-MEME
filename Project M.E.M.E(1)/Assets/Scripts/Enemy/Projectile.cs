@@ -5,7 +5,6 @@ public class Projectile : MonoBehaviour {
 
     public float speed;
     public float destroyDistance;
-    public float damageDealt;
     GameObject player;
     Vector2 travel;
     Rigidbody2D rb2d;
@@ -26,12 +25,4 @@ public class Projectile : MonoBehaviour {
         }
 	}
 
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.name == "Player")
-        {       
-            Destroy(this.gameObject);
-        }
-    }
 }
