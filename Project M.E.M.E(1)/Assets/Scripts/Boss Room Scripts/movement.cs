@@ -6,6 +6,7 @@ public class movement : MonoBehaviour {
     public float mySpeed = 3.0f;
     public bool isMoving = false;
     public bool seJePremikal = false;
+    public Rigidbody2D tristanovass;
     Animator anim;
     // Use this for initialization
     void Start () {
