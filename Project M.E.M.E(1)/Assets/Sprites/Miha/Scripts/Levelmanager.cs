@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class Levelmanager : MonoBehaviour {
 
 	float s = 1.0F;
 	AudioListener main;
 
-	public Transform mainMenu, optionMenu, volslider;
+    public Transform mainMenu, optionMenu, volslider;
+    public GameObject fgm, fbm;
 
 	void Start ()
 	{
-		main = Camera.main.GetComponent<AudioListener> ();
+        fgm.SetActive(false);
+        fbm.SetActive(true);
+        main = Camera.main.GetComponent<AudioListener> ();
 	}
 
 	void Update ()
@@ -22,8 +24,8 @@ public class Levelmanager : MonoBehaviour {
 
 	public void LoadScene(string name)
 	{
-        SceneManager.LoadScene(name, LoadSceneMode.Additive);
-    }
+		Application.LoadLevel (name);
+	}
 
 	public void ExitGame(bool confirmBox)
 	{
@@ -54,4 +56,17 @@ public class Levelmanager : MonoBehaviour {
 	{
 		s = GUI.HorizontalSlider (new Rect (0, 0, 256, 32), s, 0.0F, 1.0F);
 	}
+
+    public void OnMouseEnter()
+    {
+        fbm.SetActive(false);
+        fgm.SetActive(true);
+    }
+
+    public void OnMouseExit()
+    {
+        fbm.SetActive(true);
+        fgm.SetActive(false);
+    }
+
 }
